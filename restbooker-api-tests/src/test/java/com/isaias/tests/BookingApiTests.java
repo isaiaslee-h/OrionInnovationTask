@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BookingApiTests extends BaseTest {
 
     @Test
-    void canCreateBooking_andReceiveBookingId() {   // ✅ no token needed
+    void canCreateBooking_andReceiveBookingId() {   
         Map<String, Object> payload = new HashMap<>();
         payload.put("firstname", "Isaias");
         payload.put("lastname", "Iniguez");
@@ -33,8 +33,8 @@ public class BookingApiTests extends BaseTest {
                 given()
                         .contentType(ContentType.JSON)
                         .accept(ContentType.JSON)
-                        .header("User-Agent", "RestAssured")     // ✅ trick API
-                        .header("Accept", "application/json")   // ✅ avoid text/html
+                        .header("User-Agent", "RestAssured")     
+                        .header("Accept", "application/json")   
                         .body(payload)
                         .when()
                         .post("/booking")
@@ -120,7 +120,7 @@ public class BookingApiTests extends BaseTest {
         update.put("additionalneeds", "Late checkout");
 
         given()
-                .header("Cookie", "token=" + token)  // ✅ only header needed
+                .header("Cookie", "token=" + token)  
                 .body(update)
                 .when()
                 .put("/booking/{id}", bookingId)
@@ -136,7 +136,7 @@ public class BookingApiTests extends BaseTest {
         String token = AuthClient.getToken();
 
         given()
-                .header("Cookie", "token=" + token)   // ✅ required for delete
+                .header("Cookie", "token=" + token)   
                 .when()
                 .delete("/booking/{id}", bookingId)
                 .then()
