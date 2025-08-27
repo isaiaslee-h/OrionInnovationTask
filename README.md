@@ -30,16 +30,10 @@ Copy code
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/restbooker-api-tests.git
-cd restbooker-api-tests
+git clone https://github.com/isaiaslee-h/OrionInnovationTask.git
+
 Run Tests
-You can run tests using Maven:
-
-bash
-Copy code
-mvn clean test
-Or using the included script:
-
+You can run tests using Maven
 bash
 Copy code
 bash src/test/java/bash.sh
